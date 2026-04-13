@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Calendar, Clock, User, ArrowLeft, Share2, Bookmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "../data/blogPosts";
+import { Helmet } from "react-helmet-async";
 
 export default function BlogPostPage() {
   const { id } = useParams<{ id: string }>();
@@ -11,6 +12,9 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <div className="pt-40 pb-20 text-center">
+        <Helmet>
+          <title>Post Not Found | MRM Advocates</title>
+        </Helmet>
         <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
         <Link to="/blog">
           <Button variant="outline">Back to Blog</Button>
@@ -21,6 +25,14 @@ export default function BlogPostPage() {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>{post.title} | MRM Advocates Blog</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={`${post.title} | MRM Advocates Blog`} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       {/* Article Header */}
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-6 lg:px-8">

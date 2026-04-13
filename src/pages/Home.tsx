@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Building2, Gavel, Home, Users, ShieldCheck, Heart, Star, Phone, Mail, BookOpen, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Helmet } from "react-helmet-async";
 
 import { Link } from "react-router-dom";
 import { ConsultationModal } from "../components/ConsultationModal";
@@ -73,6 +74,15 @@ const testimonials = [
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        <title>MRM Advocates | Mohamed Rama Mursal LLP - Premier Law Firm in Kenya</title>
+        <meta name="description" content="Mohamed Rama Mursal LLP (MRM Advocates) is a leading law firm in Nairobi, Kenya, specializing in Corporate Law, Litigation, Real Estate, and more. Expert legal solutions for your success." />
+        <meta name="keywords" content="Law firm Kenya, MRM Advocates, Mohamed Rama Mursal LLP, Corporate Law Nairobi, Litigation Kenya, Real Estate Law Kenya, Employment Law Kenya" />
+        <meta property="og:title" content="MRM Advocates | Mohamed Rama Mursal LLP - Premier Law Firm in Kenya" />
+        <meta property="og:description" content="Expert legal representation and strategic advice in Nairobi, Kenya. Protecting your interests with integrity and excellence." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-b from-secondary/50 to-background">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />

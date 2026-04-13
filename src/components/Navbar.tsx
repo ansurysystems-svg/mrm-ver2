@@ -95,7 +95,6 @@ export function Navbar() {
                     </div>
                     <span className="text-xl font-bold text-gray-900">MRM Advocates</span>
                   </Link>
-                  <SheetClose render={<Button variant="ghost" size="icon"><X className="w-6 h-6" /></Button>} />
                 </div>
 
                 {/* Navigation Links */}

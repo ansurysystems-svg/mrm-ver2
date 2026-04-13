@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import * as React from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -47,6 +48,10 @@ export default function ContactPage() {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Contact Us | MRM Advocates - Law Firm in Nairobi, Kenya</title>
+        <meta name="description" content="Get in touch with Mohamed Rama Mursal LLP (MRM Advocates). Visit our office in Westlands, Nairobi, or contact us via phone or email for expert legal consultation." />
+      </Helmet>
       <section className="py-24 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-start">

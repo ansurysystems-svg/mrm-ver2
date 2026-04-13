@@ -3,6 +3,7 @@ import { Building2, Gavel, Home, Users, ShieldCheck, Heart, CheckCircle2, ArrowR
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ConsultationModal } from "../components/ConsultationModal";
+import { Helmet } from "react-helmet-async";
 
 const practiceAreas = [
   {
@@ -88,6 +89,10 @@ const practiceAreas = [
 export default function ServicesPage() {
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Legal Services | MRM Advocates - Corporate, Litigation, Real Estate</title>
+        <meta name="description" content="Explore the wide range of legal services offered by MRM Advocates in Kenya. From Corporate Law to Criminal Defense, we provide strategic legal solutions for all your needs." />
+      </Helmet>
       {/* Hero */}
       <section className="py-24 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-6 lg:px-8">

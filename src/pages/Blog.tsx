@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../data/blogPosts";
+import { Helmet } from "react-helmet-async";
 
 export default function BlogPage() {
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Legal Insights & Blog | MRM Advocates - Law Firm Kenya</title>
+        <meta name="description" content="Stay updated with the latest legal news, expert analysis, and regulatory changes in Kenya. Insights from the legal team at MRM Advocates." />
+      </Helmet>
       {/* Hero Section */}
       <section className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />
@@ -106,16 +111,22 @@ export default function BlogPage() {
                   Get the latest legal updates and firm news delivered directly to your inbox. Stay ahead of the curve.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <form 
+                action="https://formspree.io/f/mzdybelz"
+                method="POST"
+                className="flex flex-col sm:flex-row gap-4"
+              >
                 <input 
                   type="email" 
+                  name="email"
+                  required
                   placeholder="Enter your email address" 
                   className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-accent transition-colors"
                 />
-                <Button className="bg-accent hover:bg-accent/90 text-white px-10 py-4 h-auto rounded-2xl font-bold">
+                <Button type="submit" className="bg-accent hover:bg-accent/90 text-white px-10 py-4 h-auto rounded-2xl font-bold">
                   Subscribe Now
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
         </div>

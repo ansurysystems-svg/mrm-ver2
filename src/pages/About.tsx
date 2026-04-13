@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ShieldCheck, Target, Eye, Handshake, Globe, Trophy, Medal, Star, UserCheck, Lightbulb, Users, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ConsultationModal } from "../components/ConsultationModal";
+import { Helmet } from "react-helmet-async";
 
 const partners = [
   {
@@ -42,6 +43,10 @@ const associates = [
 export default function AboutPage() {
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>About Us | MRM Advocates - Our Story and Legal Team</title>
+        <meta name="description" content="Learn about Mohamed Rama Mursal LLP (MRM Advocates), our mission, vision, and the experienced legal professionals dedicated to serving you in Kenya." />
+      </Helmet>
       {/* Hero */}
       <section className="py-24 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-6 lg:px-8">

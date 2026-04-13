@@ -10,7 +10,14 @@ export function Footer() {
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-3">
               <div className="bg-white p-1 rounded-lg">
-                <img src="/assets/mrm-logo.png" alt="MRM Logo" className="h-10 w-auto" />
+                <img 
+                  src="/assets/mrm-logo.png" 
+                  alt="MRM Logo" 
+                  className="h-10 w-auto" 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://picsum.photos/seed/mrm/100/100";
+                  }}
+                />
               </div>
               <span className="text-xl font-bold text-white">MRM Advocates</span>
             </Link>

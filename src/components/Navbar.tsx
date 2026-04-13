@@ -38,7 +38,14 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 overflow-hidden rounded-lg luxury-border">
-                <img src="/assets/mrm-logo.png" alt="MRM Logo" className="object-contain w-full h-full p-1" />
+                <img 
+                  src="/assets/mrm-logo.png" 
+                  alt="MRM Logo" 
+                  className="object-contain w-full h-full p-1" 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://picsum.photos/seed/mrm/100/100";
+                  }}
+                />
             </div>
             <span className="text-xl font-bold tracking-tight text-gray-900">
               MRM <span className="text-accent">Advocates</span>
@@ -85,16 +92,24 @@ export function Navbar() {
                 </Button>
               }
             />
-            <SheetContent side="right" className="w-full sm:max-w-md p-0 border-none">
+            <SheetContent side="right" className="w-full sm:max-w-md p-0 border-none" showCloseButton={false}>
               <div className="flex flex-col h-full bg-white">
                 {/* Header */}
                 <div className="p-6 border-b flex items-center justify-between">
                   <Link to="/" className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center p-1">
-                      <img src="/assets/mrm-logo.png" alt="MRM Logo" className="object-contain w-full h-full" />
+                      <img 
+                        src="/assets/mrm-logo.png" 
+                        alt="MRM Logo" 
+                        className="object-contain w-full h-full"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = "https://picsum.photos/seed/mrm/100/100";
+                        }}
+                      />
                     </div>
                     <span className="text-xl font-bold text-gray-900">MRM Advocates</span>
                   </Link>
+                  <SheetClose render={<Button variant="ghost" size="icon" className="rounded-full hover:bg-secondary"><X className="w-6 h-6" /></Button>} />
                 </div>
 
                 {/* Navigation Links */}

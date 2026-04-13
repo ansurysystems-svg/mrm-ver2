@@ -1,8 +1,9 @@
 import { motion } from "motion/react";
-import { ArrowRight, Building2, Gavel, Home, Users, ShieldCheck, Heart, Star, Phone, Mail, BookOpen, Tag } from "lucide-react";
+import { ArrowRight, Building2, Gavel, Home, Users, ShieldCheck, Heart, Star, Phone, Mail, BookOpen, Tag, CheckCircle, TrendingUp, Award, Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Helmet } from "react-helmet-async";
+import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 import { Link } from "react-router-dom";
 import { ConsultationModal } from "../components/ConsultationModal";
@@ -12,6 +13,14 @@ const stats = [
   { label: "Years Experience", value: "10+" },
   { label: "Cases Won", value: "120+" },
   { label: "Expert Lawyers", value: "6" },
+];
+
+const chartData = [
+  { year: '2020', success: 85 },
+  { year: '2021', success: 88 },
+  { year: '2022', success: 92 },
+  { year: '2023', success: 95 },
+  { year: '2024', success: 98 },
 ];
 
 const services = [
@@ -83,88 +92,175 @@ export default function HomePage() {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-b from-secondary/50 to-background">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-gradient-to-b from-secondary/40 via-background to-background overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] -z-10 animate-pulse" />
+        <div className="absolute -bottom-20 -left-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10" />
         
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] -z-10" />
+
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            {/* Left Content */}
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-6 text-center lg:text-left"
+              className="lg:col-span-6 text-center lg:text-left z-10"
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 leading-[1.1]">
-                Unraveling <br />
-                <span className="text-accent italic font-serif">Complexities.</span> <br />
-                Together
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-bold mb-8"
+              >
+                <Award className="w-4 h-4" />
+                <span>Nairobi's Leading Legal Practice</span>
+              </motion.div>
+
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-gray-900 leading-[1.05]">
+                Mastering <br />
+                <span className="text-accent italic font-serif">Legal Mastery.</span> <br />
+                For You.
               </h1>
+              
               <p className="mt-8 text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                At Mohamed Rama Mursal LLP, we transform legal complexities into strategic opportunities. Our seasoned team delivers exceptional, personalized legal services to protect and empower you.
+                At Mohamed Rama Mursal LLP, we don't just practice law; we redefine it. Our elite team transforms complex legal hurdles into clear paths for your success and peace of mind.
               </p>
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+              <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
                 <ConsultationModal 
                   trigger={
-                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-10 py-7 text-lg rounded-xl shadow-xl shadow-accent/20">
-                      Book a Consultation
+                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-12 py-8 text-xl rounded-2xl shadow-2xl shadow-accent/30 group transition-all hover:scale-105">
+                      Book Free Consultation
+                      <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   }
                 />
                 <Button
                   variant="outline"
                   size="lg"
-                  className="px-10 py-7 text-lg rounded-xl luxury-border"
+                  className="px-12 py-8 text-xl rounded-2xl luxury-border hover:bg-secondary/50 transition-all"
                   nativeButton={false}
-                  render={<Link to="/services">Explore Services</Link>}
+                  render={<Link to="/services">Our Expertise</Link>}
                 />
               </div>
 
-              {/* Stats */}
-              <div className="mt-16 grid grid-cols-3 gap-8 border-t border-gray-200 pt-10">
-                {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <p className="text-4xl font-bold text-gray-900">{stat.value}</p>
-                    <p className="text-sm text-gray-500 font-medium uppercase tracking-wider mt-1">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="lg:col-span-6 relative"
-            >
-              <div className="relative z-10">
-                <div className="absolute inset-0 bg-accent/10 rounded-3xl blur-3xl -z-10" />
-                <img 
-                  src="/assets/lady_statue-removebg-preview.png" 
-                  alt="Lady Justice" 
-                  className="w-full h-auto max-h-[700px] object-contain drop-shadow-2xl animate-float"
-                />
-              </div>
-              
-              {/* Floating Card */}
-              <motion.div 
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1, duration: 0.8 }}
-                className="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-2xl luxury-border hidden md:block z-20"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                    <ShieldCheck className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">Certified Excellence</p>
-                    <p className="text-sm text-gray-500">Top Tier Legal Firm in Kenya</p>
+              {/* Trust Indicators */}
+              <div className="mt-16 flex flex-wrap justify-center lg:justify-start items-center gap-8">
+                <div className="flex -space-x-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-secondary flex items-center justify-center overflow-hidden">
+                      <img src={`https://picsum.photos/seed/lawyer${i}/100/100`} alt="Client" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                  <div className="w-12 h-12 rounded-full border-4 border-white bg-accent text-white flex items-center justify-center text-xs font-bold">
+                    +500
                   </div>
                 </div>
-              </motion.div>
+                <div className="text-left">
+                  <div className="flex text-yellow-500 mb-1">
+                    {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 fill-current" />)}
+                  </div>
+                  <p className="text-sm font-bold text-gray-900">Trusted by 500+ Clients</p>
+                </div>
+              </div>
             </motion.div>
+
+            {/* Right Visuals */}
+            <div className="lg:col-span-6 relative mt-20 lg:mt-0">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="relative"
+              >
+                {/* Main Statue Image */}
+                <div className="relative z-10 mx-auto max-w-[500px]">
+                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-[100px] -z-10 animate-pulse" />
+                  <img 
+                    src="/assets/lady_statue-removebg-preview.png" 
+                    alt="Lady Justice" 
+                    className="w-full h-auto object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] animate-float"
+                  />
+                </div>
+
+                {/* Floating Success Chart Card */}
+                <motion.div 
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                  className="absolute -right-4 top-10 md:right-0 md:top-20 z-20 w-64 md:w-80 bg-white/90 backdrop-blur-xl p-6 rounded-3xl shadow-2xl border border-white/20 hidden sm:block"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Success Rate</p>
+                      <h4 className="text-2xl font-black text-gray-900">98.2%</h4>
+                    </div>
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-green-600" />
+                    </div>
+                  </div>
+                  <div className="h-24 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart data={chartData}>
+                        <defs>
+                          <linearGradient id="colorSuccess" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#C5A059" stopOpacity={0.3}/>
+                            <stop offset="95%" stopColor="#C5A059" stopOpacity={0}/>
+                          </linearGradient>
+                        </defs>
+                        <Area type="monotone" dataKey="success" stroke="#C5A059" fillOpacity={1} fill="url(#colorSuccess)" strokeWidth={3} />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+                </motion.div>
+
+                {/* Floating Experience Card */}
+                <motion.div 
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.8 }}
+                  className="absolute -left-10 bottom-20 z-20 bg-gray-900 text-white p-6 rounded-3xl shadow-2xl border border-white/10 hidden md:block"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
+                      <Scale className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-3xl font-black">10+</p>
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Years of Excellence</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Decorative Icons */}
+                <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                  <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-1/4 left-0 text-accent/20"><Gavel className="w-12 h-12" /></motion.div>
+                  <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity, delay: 1 }} className="absolute bottom-1/4 right-0 text-accent/20"><ShieldCheck className="w-16 h-16" /></motion.div>
+                  <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 6, repeat: Infinity }} className="absolute top-1/2 right-1/4 text-accent/10"><Building2 className="w-20 h-20" /></motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Bottom Stats Bar */}
+          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/50 backdrop-blur-md p-8 md:p-12 rounded-[3rem] border border-white/50 shadow-xl">
+            {stats.map((stat, i) => (
+              <div key={stat.label} className={`text-center ${i !== stats.length - 1 ? 'md:border-r border-gray-200' : ''}`}>
+                <p className="text-4xl md:text-5xl font-black text-gray-900 mb-2">{stat.value}</p>
+                <p className="text-sm font-bold text-gray-500 uppercase tracking-widest">{stat.label}</p>
+              </div>
+            ))}
+            <div className="text-center flex flex-col items-center justify-center">
+              <div className="flex gap-1 mb-2">
+                {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 text-accent fill-current" />)}
+              </div>
+              <p className="text-sm font-bold text-gray-900">Top Rated Firm</p>
+            </div>
           </div>
         </div>
       </section>

@@ -1,0 +1,443 @@
+import { motion } from "motion/react";
+import { ArrowRight, Building2, Gavel, Home, Users, ShieldCheck, Heart, Star, Phone, Mail, BookOpen, Tag } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+import { Link } from "react-router-dom";
+import { ConsultationModal } from "../components/ConsultationModal";
+
+const stats = [
+  { label: "Years Experience", value: "10+" },
+  { label: "Cases Won", value: "120+" },
+  { label: "Expert Lawyers", value: "6" },
+];
+
+const services = [
+  {
+    title: "Corporate & Commercial Law",
+    description: "Expert guidance in business formation, mergers & acquisitions, and governance.",
+    icon: Building2,
+    href: "/services#corporate",
+  },
+  {
+    title: "Litigation & Dispute Resolution",
+    description: "Aggressive representation in civil litigation, arbitration, and dispute resolution.",
+    icon: Gavel,
+    href: "/services#litigation",
+  },
+  {
+    title: "Real Estate & Property Law",
+    description: "Complete property law services including conveyancing and land transactions.",
+    icon: Home,
+    href: "/services#real-estate",
+  },
+  {
+    title: "Employment & Labor Law",
+    description: "Comprehensive services for employers and employees, including contracts and disputes.",
+    icon: Users,
+    href: "/services#employment",
+  },
+  {
+    title: "Criminal Defense",
+    description: "Skilled representation for all types of criminal charges, from minor to serious.",
+    icon: ShieldCheck,
+    href: "/services#criminal",
+  },
+  {
+    title: "Family Law",
+    description: "Compassionate services including divorce, custody, and adoption matters.",
+    icon: Heart,
+    href: "/services#family",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Sarah Kiprotich",
+    role: "CEO, TechCorp Kenya",
+    text: "Mohamed Rama Mursal LLP provided exceptional legal representation during our company's merger. Their expertise and attention to detail ensured a smooth transaction.",
+  },
+  {
+    name: "David Mwangi",
+    role: "Property Developer",
+    text: "The team handled my property dispute with professionalism and expertise. They kept me informed throughout the process and achieved an excellent outcome.",
+  },
+  {
+    name: "Grace Wanjiku",
+    role: "HR Director, Manufacturing Ltd",
+    text: "Outstanding legal services! They helped us navigate complex employment law issues with clarity and confidence. Their strategic approach saved us significant costs.",
+  },
+];
+
+export default function HomePage() {
+  return (
+    <div className="overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-b from-secondary/50 to-background">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+        
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-6 text-center lg:text-left"
+            >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 leading-[1.1]">
+                Unraveling <br />
+                <span className="text-accent italic font-serif">Complexities.</span> <br />
+                Together
+              </h1>
+              <p className="mt-8 text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                At Mohamed Rama Mursal LLP, we transform legal complexities into strategic opportunities. Our seasoned team delivers exceptional, personalized legal services to protect and empower you.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <ConsultationModal 
+                  trigger={
+                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-10 py-7 text-lg rounded-xl shadow-xl shadow-accent/20">
+                      Book a Consultation
+                    </Button>
+                  }
+                />
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="px-10 py-7 text-lg rounded-xl luxury-border"
+                  nativeButton={false}
+                  render={<Link to="/services">Explore Services</Link>}
+                />
+              </div>
+
+              {/* Stats */}
+              <div className="mt-16 grid grid-cols-3 gap-8 border-t border-gray-200 pt-10">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <p className="text-4xl font-bold text-gray-900">{stat.value}</p>
+                    <p className="text-sm text-gray-500 font-medium uppercase tracking-wider mt-1">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="lg:col-span-6 relative"
+            >
+              <div className="relative z-10">
+                <div className="absolute inset-0 bg-accent/10 rounded-3xl blur-3xl -z-10" />
+                <img 
+                  src="/assets/lady_statue-removebg-preview.png" 
+                  alt="Lady Justice" 
+                  className="w-full h-auto max-h-[700px] object-contain drop-shadow-2xl animate-float"
+                />
+              </div>
+              
+              {/* Floating Card */}
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                className="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-2xl luxury-border hidden md:block z-20"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900">Certified Excellence</p>
+                    <p className="text-sm text-gray-500">Top Tier Legal Firm in Kenya</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-accent font-bold tracking-widest uppercase text-sm"
+            >
+              Our Expertise
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-5xl font-bold text-gray-900 mt-4"
+            >
+              Comprehensive Legal Solutions
+            </motion.h2>
+            <p className="mt-6 text-lg text-gray-600">
+              Tailored legal strategies across multiple practice areas to meet your unique needs and protect your interests.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full hover:shadow-2xl transition-all duration-500 group border-none bg-secondary/30">
+                  <CardContent className="p-10">
+                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:text-white transition-colors shadow-sm">
+                      <service.icon className="w-8 h-8 text-accent group-hover:text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed mb-8">
+                      {service.description}
+                    </p>
+                    <a href={service.href} className="inline-flex items-center font-bold text-accent group/link">
+                      Learn More 
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-2" />
+                    </a>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-24 lg:py-32 bg-secondary/20 relative overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden luxury-shadow">
+                <img 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Legal Team" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-10 -right-10 bg-accent p-10 rounded-3xl text-white hidden md:block">
+                <p className="text-5xl font-bold">10+</p>
+                <p className="text-sm uppercase tracking-widest font-medium mt-2">Years of Excellence</p>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-accent font-bold tracking-widest uppercase text-sm">About the Firm</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-8">
+                A Legacy of Trust and <br />
+                <span className="text-accent italic font-serif">Legal Excellence</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                For over a decade, Mohamed Rama Mursal LLP has been at the forefront of legal excellence in Kenya. Our founding partners established the firm with a vision to provide world-class legal services that combine deep local knowledge with international standards.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6 mb-10">
+                {[
+                  "Proven Track Record",
+                  "Client-Centric Approach",
+                  "Innovative Solutions",
+                  "Transparent Communication"
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center">
+                      <ShieldCheck className="w-4 h-4 text-accent" />
+                    </div>
+                    <span className="font-medium text-gray-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Button
+                size="lg"
+                className="bg-gray-900 hover:bg-gray-800 text-white px-8 h-14 rounded-xl"
+                nativeButton={false}
+                render={<Link to="/about">Learn More About Us</Link>}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">What Our Clients Say</h2>
+            <p className="mt-6 text-lg text-gray-600">
+              Trusted by leading businesses and individuals across Kenya.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full hover:shadow-xl transition-all border-gray-100">
+                  <CardContent className="p-8">
+                    <div className="flex gap-1 mb-6">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                      ))}
+                    </div>
+                    <p className="text-gray-600 italic mb-8 leading-relaxed">
+                      "{t.text}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center font-bold text-accent">
+                        {t.name[0]}
+                      </div>
+                      <div>
+                        <p className="font-bold text-gray-900">{t.name}</p>
+                        <p className="text-sm text-gray-500">{t.role}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Preview Section */}
+      <section className="py-24 lg:py-32 bg-secondary/10">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <span className="text-accent font-bold tracking-widest uppercase text-sm">Legal Insights</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">Latest from our Blog</h2>
+              <p className="mt-6 text-lg text-gray-600">
+                Expert analysis on the latest legal trends and regulatory changes in Kenya.
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-xl px-8 h-14 luxury-border group"
+              nativeButton={false}
+              render={<Link to="/blog">View All Posts <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" /></Link>}
+            />
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Navigating the New Companies Act",
+                category: "Corporate Law",
+                date: "May 15, 2024",
+                image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              },
+              {
+                title: "Real Estate Transactions Pitfalls",
+                category: "Real Estate",
+                date: "June 02, 2024",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              },
+              {
+                title: "The Future of Dispute Resolution",
+                category: "Litigation",
+                date: "June 10, 2024",
+                image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              }
+            ].map((post, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full group border-none bg-white hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-3xl">
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <CardContent className="p-8">
+                    <div className="flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-wider mb-4">
+                      <Tag className="w-3 h-3" /> {post.category}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-accent transition-colors">
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center justify-between mt-6 pt-6 border-t border-gray-100">
+                      <span className="text-sm text-gray-500">{post.date}</span>
+                      <Link to="/blog" className="text-accent font-bold text-sm flex items-center gap-1 group/link">
+                        Read <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 lg:py-32 bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] -z-0" />
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to Secure Your Future?</h2>
+            <p className="text-xl text-gray-400 mb-12 leading-relaxed">
+              Contact Mohamed Rama Mursal LLP today for a consultation. Let us help you navigate your legal challenges with confidence and achieve the best possible outcomes.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <ConsultationModal 
+                trigger={
+                  <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-10 h-16 text-lg rounded-xl">
+                    Schedule Consultation
+                  </Button>
+                }
+              />
+              <div className="flex flex-col items-start gap-4">
+                <a href="tel:+254702929018" className="flex items-center gap-3 hover:text-accent transition-colors">
+                  <Phone className="w-5 h-5 text-accent" />
+                  <span className="text-lg font-medium">+254 702 929 018</span>
+                </a>
+                <a href="mailto:info@mrmadvocates.co.ke" className="flex items-center gap-3 hover:text-accent transition-colors">
+                  <Mail className="w-5 h-5 text-accent" />
+                  <span className="text-lg font-medium">info@mrmadvocates.co.ke</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
+  );
+}

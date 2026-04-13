@@ -1,0 +1,13 @@
+{
+  "name": "mrm-advocates-website",
+  "version": "1.0.0",
+  "description": "Mohamed Rama Mursal LLP Website (Formspree contact form)",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "googleapis": "^117.0.0"
+  },
+  "devDependencies": {}
+}
+

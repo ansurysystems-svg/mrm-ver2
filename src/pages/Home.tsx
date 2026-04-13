@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import { Link } from "react-router-dom";
 import { ConsultationModal } from "../components/ConsultationModal";
+import { blogPosts } from "../data/blogPosts";
 
 const stats = [
   { label: "Years Experience", value: "10+" },
@@ -340,28 +341,9 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Navigating the New Companies Act",
-                category: "Corporate Law",
-                date: "May 15, 2024",
-                image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              },
-              {
-                title: "Real Estate Transactions Pitfalls",
-                category: "Real Estate",
-                date: "June 02, 2024",
-                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              },
-              {
-                title: "The Future of Dispute Resolution",
-                category: "Litigation",
-                date: "June 10, 2024",
-                image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              }
-            ].map((post, i) => (
+            {blogPosts.slice(0, 3).map((post, i) => (
               <motion.div
-                key={i}
+                key={post.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
@@ -385,7 +367,7 @@ export default function HomePage() {
                     </h3>
                     <div className="flex items-center justify-between mt-6 pt-6 border-t border-gray-100">
                       <span className="text-sm text-gray-500">{post.date}</span>
-                      <Link to="/blog" className="text-accent font-bold text-sm flex items-center gap-1 group/link">
+                      <Link to={`/blog/${post.id}`} className="text-accent font-bold text-sm flex items-center gap-1 group/link">
                         Read <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
                       </Link>
                     </div>

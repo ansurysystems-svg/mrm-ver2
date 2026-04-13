@@ -3,39 +3,7 @@ import { Calendar, User, ArrowRight, Clock, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "Navigating the New Companies Act: What Kenyan Businesses Need to Know",
-    excerpt: "The recent amendments to the Companies Act have introduced significant changes to compliance and reporting requirements for private companies in Kenya.",
-    author: "Mohamed Rama",
-    date: "May 15, 2024",
-    readTime: "8 min read",
-    category: "Corporate Law",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 2,
-    title: "Real Estate Transactions: Avoiding Common Legal Pitfalls in Nairobi",
-    excerpt: "Property transactions can be complex and risky. We outline the essential due diligence steps every buyer should take before signing a sale agreement.",
-    author: "Mursal LLP",
-    date: "June 02, 2024",
-    readTime: "12 min read",
-    category: "Real Estate",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 3,
-    title: "The Future of Dispute Resolution: Why Arbitration is Gaining Ground",
-    excerpt: "Alternative Dispute Resolution (ADR) is becoming the preferred method for commercial entities. Discover the benefits of arbitration over traditional litigation.",
-    author: "Legal Team",
-    date: "June 10, 2024",
-    readTime: "10 min read",
-    category: "Litigation",
-    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  }
-];
+import { blogPosts } from "../data/blogPosts";
 
 export default function BlogPage() {
   return (

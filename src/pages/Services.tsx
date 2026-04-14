@@ -120,7 +120,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Practice Areas */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section id="practice" className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="space-y-32">
             {practiceAreas.map((area, index) => (

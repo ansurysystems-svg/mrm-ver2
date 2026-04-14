@@ -37,17 +37,17 @@ export function Navbar() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 overflow-hidden rounded-lg luxury-border bg-white">
+            <div className="relative h-12 overflow-hidden rounded-lg luxury-border bg-white px-2 flex items-center justify-center">
                 <img 
-                  src="https://mrm-advocates.netlify.app/assets/mrm-logo.png" 
+                  src="/assets/mrm-logo.png" 
                   alt="MRM Logo" 
-                  className="object-contain w-full h-full p-1" 
+                  className="object-contain h-10 w-auto" 
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=MRM&background=0D1117&color=C5A059";
                   }}
                 />
             </div>
-            <span className="text-xl font-bold tracking-tight text-gray-900">
+            <span className="text-xl font-bold tracking-tight text-gray-900 hidden sm:block">
               MRM <span className="text-accent">Advocates</span>
             </span>
           </Link>
@@ -97,11 +97,11 @@ export function Navbar() {
                 {/* Header */}
                 <div className="p-6 border-b flex items-center justify-between">
                   <Link to="/" className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1 border border-gray-100">
+                    <div className="h-12 bg-white rounded-lg flex items-center justify-center px-2 border border-gray-100">
                       <img 
-                        src="https://mrm-advocates.netlify.app/assets/mrm-logo.png" 
+                        src="/assets/mrm-logo.png" 
                         alt="MRM Logo" 
-                        className="object-contain w-full h-full"
+                        className="object-contain h-10 w-auto"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=MRM&background=0D1117&color=C5A059";
                         }}

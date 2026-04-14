@@ -9,7 +9,7 @@ const partners = [
   {
     name: "Abdalla Mohamed",
     role: "Senior Partner",
-    image: "/assets/AbdullahiMohamed.jpeg",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Specialist in corporate law, mergers, acquisitions, and securities. Abdalla advises blue-chip companies on market-shaping transactions.",
     fullBio: "Abdalla Mohamed is a distinguished legal practitioner with over 20 years of experience in Corporate and Commercial Law. He has been instrumental in some of the largest mergers and acquisitions in East Africa. His strategic approach and deep understanding of regulatory frameworks make him a sought-after advisor for multinational corporations and high-growth startups alike.",
     expertise: ["Corporate Law", "M&A", "Securities", "Tax Law"],
@@ -20,7 +20,7 @@ const partners = [
   {
     name: "Rama Mwanaidi",
     role: "Senior Partner",
-    image: "/assets/Rama.jpeg",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Renowned litigator representing clients in complex commercial disputes, arbitration, and high-profile litigation across East Africa.",
     fullBio: "Rama Mwanaidi is a formidable force in the courtroom, known for her sharp legal mind and persuasive advocacy. With a career spanning two decades, she has successfully represented clients in landmark commercial disputes and international arbitrations. She is a member of the Chartered Institute of Arbitrators and is frequently called upon to resolve complex cross-border conflicts.",
     expertise: ["Litigation", "Licensed Arbitration", "Commercial Disputes", "Public Law"],
@@ -31,7 +31,7 @@ const partners = [
   {
     name: "Mursal Abdirahman",
     role: "Senior Partner",
-    image: "/assets/AbdirahmanMursal.jpeg",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Trusted adviser on real estate law, property development, and conveyancing, guiding landmark projects from conception to completion.",
     fullBio: "Mursal Abdirahman is a world-class Sheikh and legal expert specializing in Real Estate and Property Law. He brings a unique blend of ethical leadership and deep legal knowledge to property development and conveyancing. He has advised on numerous multi-billion shilling real estate projects, from residential estates to commercial hubs. His meticulous attention to detail and proactive problem-solving ensure that even the most complex transactions are executed seamlessly.",
     expertise: ["Real Estate", "Development", "Conveyancing", "Banking Law"],

@@ -182,9 +182,9 @@ export default function HomePage() {
                 <div className="relative z-10 mx-auto max-w-[500px]">
                   <div className="absolute inset-0 bg-accent/20 rounded-full blur-[100px] -z-10 animate-pulse" />
                   <img 
-                    src="/assets/lady_statue-removebg-preview.png" 
+                    src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                     alt="Lady Justice" 
-                    className="w-full h-auto object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] animate-float"
+                    className="w-full h-auto object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] rounded-3xl"
                   />
                 </div>
 
@@ -260,6 +260,70 @@ export default function HomePage() {
                 {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 text-accent fill-current" />)}
               </div>
               <p className="text-sm font-bold text-gray-900">Top Rated Firm</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-24 lg:py-32 bg-secondary/10 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] -z-10" />
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div data-aos="fade-right">
+              <span className="text-accent font-bold tracking-widest uppercase text-sm">Why MRM Advocates</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-8">
+                The Gold Standard in <br />
+                <span className="text-accent italic font-serif">Legal Representation</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-10">
+                Choosing the right legal partner is critical to your success. At Mohamed Rama Mursal LLP, we combine deep local expertise with a global perspective to deliver results that matter.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "Strategic Excellence", desc: "We don't just follow procedures; we craft winning strategies tailored to your specific goals." },
+                  { title: "Unwavering Integrity", desc: "Our reputation is built on trust, transparency, and the highest ethical standards." },
+                  { title: "Client-First Mentality", desc: "Your success is our priority. We provide personalized attention and proactive communication." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-5 group">
+                    <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-all">
+                      <CheckCircle className="w-6 h-6 text-accent group-hover:text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-6" data-aos="fade-left">
+              <div className="space-y-6 pt-12">
+                <div className="bg-white p-8 rounded-[2rem] shadow-xl luxury-border">
+                  <Award className="w-10 h-10 text-accent mb-6" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Top Rated</h3>
+                  <p className="text-gray-500 text-sm">Recognized as a leading firm in Nairobi for corporate and litigation matters.</p>
+                </div>
+                <div className="bg-gray-900 p-8 rounded-[2rem] shadow-xl text-white">
+                  <ShieldCheck className="w-10 h-10 text-accent mb-6" />
+                  <h3 className="text-2xl font-bold mb-2">Secure</h3>
+                  <p className="text-gray-400 text-sm">Protecting your assets and interests with robust legal frameworks.</p>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="bg-accent p-8 rounded-[2rem] shadow-xl text-white">
+                  <TrendingUp className="w-10 h-10 text-white mb-6" />
+                  <h3 className="text-2xl font-bold mb-2">98% Success</h3>
+                  <p className="text-white/80 text-sm">A proven track record of securing favorable outcomes for our clients.</p>
+                </div>
+                <div className="bg-white p-8 rounded-[2rem] shadow-xl luxury-border">
+                  <Users className="w-10 h-10 text-accent mb-6" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Expert Team</h3>
+                  <p className="text-gray-500 text-sm">Our partners bring decades of combined experience to every case.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

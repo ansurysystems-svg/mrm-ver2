@@ -45,12 +45,10 @@ export default function BlogPage() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {blogPosts.map((post, index) => (
-              <motion.div
+              <div
                 key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <Card className="h-full group border-none bg-secondary/20 hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-3xl">
                   <div className="aspect-video overflow-hidden relative">
@@ -97,12 +95,15 @@ export default function BlogPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Newsletter CTA */}
-          <div className="mt-32 p-12 lg:p-20 bg-gray-900 rounded-[3rem] relative overflow-hidden text-center lg:text-left">
+          <div 
+            data-aos="fade-up"
+            className="mt-32 p-12 lg:p-20 bg-gray-900 rounded-[3rem] relative overflow-hidden text-center lg:text-left"
+          >
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
             <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
               <div>

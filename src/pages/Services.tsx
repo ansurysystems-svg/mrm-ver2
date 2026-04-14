@@ -24,12 +24,12 @@ const practiceAreas = [
     title: "Litigation & Dispute Resolution",
     icon: Gavel,
     description: "Resolving Disputes with Precision and Strength",
-    longDescription: "Our litigators develop pragmatic strategies for complex civil, commercial, and public law disputes, representing clients in courtrooms and arbitration centres.",
+    longDescription: "Our litigators develop pragmatic strategies for complex civil, commercial, and public law disputes. We are licensed and certified specialists in alternative dispute resolution, representing clients in courtrooms and premier arbitration centres.",
     features: [
       "Contract and shareholder disputes",
       "Banking and insolvency claims",
-      "Domestic and international arbitration",
-      "Administrative litigation",
+      "Licensed domestic & international arbitration",
+      "Certified mediation and ADR services",
     ]
   },
   {
@@ -124,12 +124,10 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="space-y-32">
             {practiceAreas.map((area, index) => (
-              <motion.div 
+              <div 
                 key={area.id}
                 id={area.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
                 className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
               >
                 <div className={index % 2 !== 0 ? 'lg:order-2' : ''}>
@@ -162,7 +160,7 @@ export default function ServicesPage() {
                     <area.icon className="w-32 h-32 text-accent/20" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -171,19 +169,24 @@ export default function ServicesPage() {
       {/* Process */}
       <section className="py-24 bg-gray-900 text-white">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
             <h2 className="text-4xl font-bold">Our Engagement Process</h2>
             <p className="text-gray-400 mt-4">A clear path from consultation to resolution.</p>
           </div>
-          <div className="grid md:grid-cols-5 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
             {[
               { step: "01", title: "Discovery", desc: "We learn about your objectives and challenges." },
               { step: "02", title: "Assessment", desc: "Our team analyses documents and precedents." },
               { step: "03", title: "Roadmap", desc: "We co-create a plan with clear milestones." },
               { step: "04", title: "Execution", desc: "Lawyers and specialists collaborate on your matter." },
               { step: "05", title: "Outcome", desc: "We secure the optimal resolution for you." },
-            ].map((s) => (
-              <div key={s.step} className="p-8 rounded-2xl bg-white/5 border border-white/10">
+            ].map((s, i) => (
+              <div 
+                key={s.step} 
+                data-aos="zoom-in"
+                data-aos-delay={i * 100}
+                className="p-8 rounded-2xl bg-white/5 border border-white/10"
+              >
                 <span className="text-accent font-bold">{s.step}</span>
                 <h3 className="text-xl font-bold mt-4 mb-2">{s.title}</h3>
                 <p className="text-gray-400 text-sm">{s.desc}</p>

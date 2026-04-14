@@ -1,6 +1,7 @@
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { WhatsAppButton } from "./WhatsAppButton";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <Navbar />
       <main className="flex-grow">{children}</main>
       <Footer />
+      <WhatsAppButton />
       <Toaster />
     </div>
   );

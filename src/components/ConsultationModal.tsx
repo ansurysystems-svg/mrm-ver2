@@ -64,15 +64,15 @@ export function ConsultationModal({ trigger, className }: ConsultationModalProps
           )
         }
       />
-      <DialogContent className="sm:max-w-[500px] rounded-3xl p-0 overflow-hidden border-none shadow-2xl">
+      <DialogContent className="sm:max-w-[500px] rounded-3xl p-0 overflow-hidden border-none shadow-2xl max-h-[90vh] overflow-y-auto">
         {isSuccess ? (
-          <div className="p-12 text-center space-y-6 bg-white">
+          <div className="p-8 sm:p-12 text-center space-y-6 bg-white">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10 text-green-600" />
             </div>
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold text-gray-900">Request Sent!</h2>
-              <p className="text-gray-600">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Request Sent!</h2>
+              <p className="text-gray-600 text-sm sm:text-base">
                 Thank you for choosing MRM Advocates. <br />
                 We've received your consultation request and will get back to you within 24 hours.
               </p>
@@ -86,17 +86,17 @@ export function ConsultationModal({ trigger, className }: ConsultationModalProps
           </div>
         ) : (
           <>
-            <div className="bg-gray-900 p-8 text-white">
+            <div className="bg-gray-900 p-6 sm:p-8 text-white">
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">Schedule a Consultation</DialogTitle>
-                <DialogDescription className="text-gray-400 mt-2">
+                <DialogTitle className="text-xl sm:text-2xl font-bold">Schedule a Consultation</DialogTitle>
+                <DialogDescription className="text-gray-400 mt-2 text-sm">
                   Select a preferred time and share your case details. Our legal experts will review and get back to you.
                 </DialogDescription>
               </DialogHeader>
             </div>
             
-            <form onSubmit={handleSubmit} className="p-8 space-y-6 bg-white">
-              <div className="grid grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-6 bg-white">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
                     <User className="w-3 h-3" /> Full Name
@@ -111,7 +111,7 @@ export function ConsultationModal({ trigger, className }: ConsultationModalProps
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
                     <Calendar className="w-3 h-3" /> Preferred Date

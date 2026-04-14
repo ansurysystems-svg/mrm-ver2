@@ -11,11 +11,11 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-3">
               <div className="bg-white p-1 rounded-lg">
                 <img 
-                  src="/assets/mrm-logo.png" 
+                  src="https://mrm-advocates.netlify.app/assets/mrm-logo.png" 
                   alt="MRM Logo" 
                   className="h-10 w-auto" 
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://picsum.photos/seed/mrm/100/100";
+                    (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=MRM&background=0D1117&color=C5A059";
                   }}
                 />
               </div>

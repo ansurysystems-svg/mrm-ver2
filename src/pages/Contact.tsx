@@ -55,10 +55,7 @@ export default function ContactPage() {
       <section className="py-24 lg:py-32 bg-secondary/30">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
+            <div data-aos="fade-right">
               <span className="text-accent font-bold tracking-widest uppercase text-sm">Contact Us</span>
               <h1 className="text-5xl md:text-6xl font-black text-gray-900 mt-6 leading-tight">
                 Let's Discuss Your <br />
@@ -106,13 +103,9 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
+            <div data-aos="fade-left">
               <Card className="border-none shadow-2xl rounded-3xl overflow-hidden min-h-[600px] flex flex-col">
                 <CardContent className="p-10 flex-1 flex flex-col">
                   {isSuccess ? (
@@ -165,7 +158,7 @@ export default function ContactPage() {
                   )}
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

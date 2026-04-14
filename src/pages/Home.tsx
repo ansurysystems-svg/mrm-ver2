@@ -121,20 +121,20 @@ export default function HomePage() {
                 <span>Nairobi's Leading Legal Practice</span>
               </motion.div>
 
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-gray-900 leading-[1.05]">
-                Mastering <br />
-                <span className="text-accent italic font-serif">Legal Mastery.</span> <br />
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-gray-900 leading-[1.1] sm:leading-[1.05]">
+                Mastering <br className="hidden sm:block" />
+                <span className="text-accent italic font-serif">Legal Mastery.</span> <br className="hidden sm:block" />
                 For You.
               </h1>
               
-              <p className="mt-8 text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="mt-8 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 At Mohamed Rama Mursal LLP, we don't just practice law; we redefine it. Our elite team transforms complex legal hurdles into clear paths for your success and peace of mind.
               </p>
 
               <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
                 <ConsultationModal 
                   trigger={
-                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-12 py-8 text-xl rounded-2xl shadow-2xl shadow-accent/30 group transition-all hover:scale-105">
+                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8 sm:px-12 py-6 sm:py-8 text-lg sm:text-xl rounded-2xl shadow-2xl shadow-accent/30 group transition-all hover:scale-105">
                       Book Free Consultation
                       <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>
@@ -248,9 +248,9 @@ export default function HomePage() {
           </div>
 
           {/* Bottom Stats Bar */}
-          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/50 backdrop-blur-md p-8 md:p-12 rounded-[3rem] border border-white/50 shadow-xl">
+          <div className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 bg-white/50 backdrop-blur-md p-8 md:p-12 rounded-[2rem] sm:rounded-[3rem] border border-white/50 shadow-xl">
             {stats.map((stat, i) => (
-              <div key={stat.label} className={`text-center ${i !== stats.length - 1 ? 'md:border-r border-gray-200' : ''}`}>
+              <div key={stat.label} className={`text-center ${i !== stats.length - 1 ? 'lg:border-r border-gray-200' : ''}`}>
                 <p className="text-4xl md:text-5xl font-black text-gray-900 mb-2">{stat.value}</p>
                 <p className="text-sm font-bold text-gray-500 uppercase tracking-widest">{stat.label}</p>
               </div>
@@ -268,21 +268,13 @@ export default function HomePage() {
       {/* Services Section */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <motion.span 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="text-accent font-bold tracking-widest uppercase text-sm"
-            >
+          <div className="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+            <span className="text-accent font-bold tracking-widest uppercase text-sm">
               Our Expertise
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 mt-4"
-            >
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
               Comprehensive Legal Solutions
-            </motion.h2>
+            </h2>
             <p className="mt-6 text-lg text-gray-600">
               Tailored legal strategies across multiple practice areas to meet your unique needs and protect your interests.
             </p>
@@ -290,12 +282,10 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <motion.div
+              <div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <Card className="h-full hover:shadow-2xl transition-all duration-500 group border-none bg-secondary/30">
                   <CardContent className="p-10">
@@ -312,7 +302,7 @@ export default function HomePage() {
                     </a>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -322,10 +312,8 @@ export default function HomePage() {
       <section className="py-24 lg:py-32 bg-secondary/20 relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+            <div 
+              data-aos="fade-right"
               className="relative"
             >
               <div className="aspect-[4/5] rounded-3xl overflow-hidden luxury-shadow">
@@ -339,12 +327,10 @@ export default function HomePage() {
                 <p className="text-5xl font-bold">10+</p>
                 <p className="text-sm uppercase tracking-widest font-medium mt-2">Years of Excellence</p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+            <div 
+              data-aos="fade-left"
             >
               <span className="text-accent font-bold tracking-widest uppercase text-sm">About the Firm</span>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-8">
@@ -375,7 +361,7 @@ export default function HomePage() {
                 nativeButton={false}
                 render={<Link to="/about">Learn More About Us</Link>}
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -383,7 +369,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">What Our Clients Say</h2>
             <p className="mt-6 text-lg text-gray-600">
               Trusted by leading businesses and individuals across Kenya.
@@ -392,12 +378,10 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
-              <motion.div
+              <div
                 key={t.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
               >
                 <Card className="h-full hover:shadow-xl transition-all border-gray-100">
                   <CardContent className="p-8">
@@ -420,7 +404,7 @@ export default function HomePage() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -429,7 +413,7 @@ export default function HomePage() {
       {/* Blog Preview Section */}
       <section className="py-24 lg:py-32 bg-secondary/10">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
             <div className="max-w-2xl">
               <span className="text-accent font-bold tracking-widest uppercase text-sm">Legal Insights</span>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">Latest from our Blog</h2>
@@ -448,12 +432,10 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {blogPosts.slice(0, 3).map((post, i) => (
-              <motion.div
+              <div
                 key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
               >
                 <Card className="h-full group border-none bg-white hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-3xl">
                   <div className="aspect-video overflow-hidden">
@@ -479,7 +461,7 @@ export default function HomePage() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

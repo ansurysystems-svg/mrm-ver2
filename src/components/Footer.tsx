@@ -11,7 +11,7 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-3">
               <div className="bg-white p-1 rounded-lg">
                 <img 
-                  src="/assets/mrm-logo.png" 
+                  src="https://asset.mrm-advocates.co.ke/mrm-logo.png" 
                   alt="MRM Logo" 
                   className="h-10 w-auto" 
                   onError={(e) => {

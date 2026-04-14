@@ -39,7 +39,7 @@ export function Navbar() {
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative h-12 overflow-hidden rounded-lg luxury-border bg-white px-2 flex items-center justify-center">
                 <img 
-                  src="/assets/mrm-logo.png" 
+                  src="https://asset.mrm-advocates.co.ke/mrm-logo.png" 
                   alt="MRM Logo" 
                   className="object-contain h-10 w-auto" 
                   onError={(e) => {
@@ -99,7 +99,7 @@ export function Navbar() {
                   <Link to="/" className="flex items-center gap-3">
                     <div className="h-12 bg-white rounded-lg flex items-center justify-center px-2 border border-gray-100">
                       <img 
-                        src="/assets/mrm-logo.png" 
+                        src="https://asset.mrm-advocates.co.ke/mrm-logo.png" 
                         alt="MRM Logo" 
                         className="object-contain h-10 w-auto"
                         onError={(e) => {
